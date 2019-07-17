@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\ProjectsTasksController;
+
 // use Symfony\Component\Routing\Route;
 
 /*
@@ -18,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('projects', 'ProjectsController');
+
+Route::patch('tasks/{task}', 'ProjectsTasksController@update');
