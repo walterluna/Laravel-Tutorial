@@ -23,3 +23,7 @@ Route::resource('projects', 'ProjectsController');
 
 Route::patch('tasks/{task}',                'ProjectsTasksController@update');
 Route::post('/projects/{project}/tasks',    'ProjectsTasksController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
