@@ -60,6 +60,7 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+        $this->authorize('update', $project);
         return view('projects.show', compact('project'));
     }
 
@@ -81,7 +82,8 @@ class ProjectsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Project $project)
-    {
+    { 
+        $this->authorize('update', $project);
         $project->title = request('title');
         $project->description = request('description');
         $project->save();
@@ -97,6 +99,7 @@ class ProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
+        $this->authorize('update', $project);
         $project->delete();
         return redirect('/projects');
     }
